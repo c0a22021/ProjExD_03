@@ -147,6 +147,9 @@ class Beam:
 
 
 class Score:
+    """
+    スコアを表示するクラス
+    """
     def __init__(self):
         self.font = pg.font.SysFont("hgp創英角ﾎﾟｯﾌﾟ体", 30)
         self.color = (0, 0, 255)
@@ -158,6 +161,7 @@ class Score:
     def update(self, screen):
         self.img = self.font.render(f"スコア: {self.score}", 0, self.color)
         screen.blit(self.img, self.rct.center)
+    
 
 def main():
     pg.display.set_caption("たたかえ！こうかとん")
