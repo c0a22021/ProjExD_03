@@ -10,6 +10,7 @@ WIDTH = 1600  # ゲームウィンドウの幅
 HEIGHT = 900  # ゲームウィンドウの高さ
 MAIN_DIR = os.path.split(os.path.abspath(__file__))[0]
 NUM_OF_BOMBS = 5  # 爆弾の数
+BEAMS = []
 
 
 def check_bound(obj_rct: pg.Rect) -> tuple[bool, bool]:
@@ -180,6 +181,9 @@ def main():
                 return
             if event.type == pg.KEYDOWN and event.key == pg.K_SPACE:  # スペースキーが押されたら
                 beam = Beam(bird)  # ビームインスタンスの生成
+                BEAMS.append(Beam(bird))
+                    
+                
         
         screen.blit(bg_img, [0, 0])
         
@@ -190,6 +194,7 @@ def main():
                 pg.display.update()
                 time.sleep(1)
                 return
+        
         for i, bomb in enumerate(bombs):
             if beam is not None and beam.rct.colliderect(bomb.rct):
                 beam = None
