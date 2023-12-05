@@ -195,7 +195,7 @@ def main():
                 beam = None
                 bombs[i] = None
                 bird.change_img(6, screen)
-                score.score += 1
+                score.score += 1  # 爆弾に当たった時にスコアを+1にする
         bombs = [bomb for bomb in bombs if bomb is not None]  # None出ない爆弾だけのリストを作る
 
         key_lst = pg.key.get_pressed()
